@@ -14,7 +14,13 @@ public abstract class Creature {
         this.baseHp = baseHp;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public String getName() {
+        return this.name;
+    }
     public double getBaseHp() {
         return this.baseHp;
     }

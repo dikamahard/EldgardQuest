@@ -1,4 +1,4 @@
-package entity;
+package entity.enemy;
 
 public class Goblin extends Enemy{
     
@@ -11,8 +11,8 @@ public class Goblin extends Enemy{
 
 
     @Override
-    public double getAtkDamage() {
-        return this.baseAtk;
+    public double getAtkDamage(double enemyPDef, double enemyMDef) {
+        return calculateDamage(baseAtk, mAtk, pAtk, enemyPDef, enemyMDef);
     }
 
 

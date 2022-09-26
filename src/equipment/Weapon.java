@@ -1,11 +1,13 @@
 package equipment;
 
 public class Weapon {
-    protected double weaponAtk;
+    protected double pAtk;
+    protected double mAtk;
     protected String name;
 
-    public Weapon(String name, int weaponAtk){
-        this.weaponAtk = weaponAtk;
+    public Weapon(String name, int pAtk, int mAtk){
+        this.pAtk = pAtk;
+        this.mAtk = mAtk;
         this.name = name;
     }
 
@@ -13,12 +15,20 @@ public class Weapon {
         return this.name;
     }
 
-    public double getWeaponAtk() {
-        return this.weaponAtk;
+    public double getPAtk() {
+        return this.pAtk;
     }
 
-    public void setWeaponAtk(double weaponAtk) {
-        this.weaponAtk = weaponAtk;
+    public double getMAtk() {
+        return this.mAtk;
+    }
+
+    public void setPAtk(double pAtk) {
+        this.pAtk = pAtk;
+    }
+
+    public void setMAtk(double mAtk) {
+        this.mAtk = mAtk;
     }
 
     public void setName(String name) {

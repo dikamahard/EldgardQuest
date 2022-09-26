@@ -1,8 +1,14 @@
-package entity;
+package entity.enemy;
+import entity.Creature;
+import entity.character.Character;
 import feature.Experience;
 
 public abstract class Enemy extends Creature {
     protected double baseAtk;
+    protected double pAtk;
+    protected double mAtk;
+    protected double pDef;
+    protected double mDef;
     protected double currentHp;
     protected double totalHp;
     protected Experience exp;
@@ -11,7 +17,13 @@ public abstract class Enemy extends Creature {
     public Enemy(String name) {
         super(name);
         this.baseAtk = 2.5;
+        this.pDef = 1;
+        this.mDef = 1;
         this.exp = new Experience(0, 1, 100);
+    }
+
+    public Experience getExp() {
+        return this.exp;
     }
 
     public double getBaseAtk() {
@@ -27,13 +39,13 @@ public abstract class Enemy extends Creature {
     }
 
     public void attacking(Character foe) {
-        System.out.println(this.name + " is attacking " + foe.name) ;
+        System.out.println(this.name + " is attacking " + foe.getName()) ;
         foe.defendingFrom(this);
     };
         
     public void defendingFrom(Character foe) {
-        System.out.println(this.name + " got damaged by " + foe.name + " for " + foe.getAtkDamage() + "damage\n");
-        this.healthReduceBy(foe.getAtkDamage());
+        System.out.println(this.name + " got damaged by " + foe.getName() + " for " + foe.getAtkDamage(this.pDef, this.mDef) + "damage\n");
+        this.healthReduceBy(foe.getAtkDamage(this.pDef, this.mDef));
         // if(this.currentHp <= 0) {
         //     System.out.println(foe.name + " got " + this.exp.getExpDrop() + " experience\n");
         //     foe.exp.gainExp(this.exp.getExpDrop());
@@ -54,6 +66,13 @@ public abstract class Enemy extends Creature {
     };
 
     // attack damage
-    public abstract double getAtkDamage();
+    public abstract double getAtkDamage(double enemyPDef, double enemyMDef);
+
+    public double calculateDamage(double baseAtk, double mAtk, double pAtk, double enemyPDef, double enemyMDef) {
+        double e1 = (enemyPDef + enemyMDef) / baseAtk;
+        double e2 = enemyPDef / pAtk;
+        double e3 = enemyMDef / mAtk;
+        return (baseAtk / Math.pow(2, e1)) + (pAtk / Math.pow(2, e2)) + (mAtk / Math.pow(2, e3));
+    }
 
 }

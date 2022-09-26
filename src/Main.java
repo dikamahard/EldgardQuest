@@ -1,12 +1,15 @@
 import entity.*;
-import entity.Character;
+import entity.character.Character;
+import entity.character.Human;
+import entity.enemy.Enemy;
+import entity.enemy.Goblin;
 import equipment.*;
 
 public class Main {
     public static void main(String[] args) {
         Character p1 = new Human("Argus");
         Enemy f1 = new Goblin("HemoGoblin");
-        Weapon sword = new Weapon("Excalibur", 20);
+        Weapon sword = new Weapon("Excalibur", 0, 0);
 
         Human player = (Human)p1;
         player.equipWeapon(sword);

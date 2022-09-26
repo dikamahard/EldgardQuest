@@ -1,4 +1,4 @@
-package entity;
+package entity.character;
 import equipment.Weapon;
 
 public class Human extends Character{
@@ -20,10 +20,10 @@ public class Human extends Character{
         this.weapon = weapon;
     }
 
-    //damage
+    //damage for human will be 2 * baseAtk
     @Override
-    public double getAtkDamage() {
-        return this.baseAtk + weapon.getWeaponAtk();
+    public double getAtkDamage(double enemyPDef, double enemyMDef) {
+        return calculateDamage(2*baseAtk, mAtk, pAtk, enemyPDef, enemyMDef);
     }
 
     public void equipWeapon(Weapon weapon) {
@@ -34,6 +34,9 @@ public class Human extends Character{
         return this.weapon;
     }
 
-   
+//    @Override
+//    protected void getTotalDamage() {
+
+//    }
 
 }

@@ -3,7 +3,7 @@ EldgardQuest is a classical text based RPG made with Java
 
 This project is created just for fun and to implement my knowledege on OOP fundamentals.
 
-IN DEVELOPMENT
+CURRENTLY IN DEVELOPMENT
 
 ==========================================================================================================
 
@@ -29,7 +29,37 @@ IN DEVELOPMENT
 - Save game to a txt file and load the game ofcourse
 - Enemy types (every types has a different weaknesses)
 
+=========================================================
+>>> USER INTERFACE PLANNING  <<<
 
+==> Menu Interface Start (When the game start and put some good ascii art for the title)
+- New Game
+- Load game
+
+==> Menu Interface New Game (Character customization and intro to the game
+* all of that customization (char name, race, class) + opening story for the intro
+
+==> Menu Interface Game (THE MAIN MENU)
+- Explore?
+- Inventory (for further development)
+- Character Info
+- Shop (for further development)
+- Save Game
+- Exit
+
+==> Menu Interface Explore (*maybe we can make south west north east choice for the zone?then see the list of the enemy) 
+- Zone 1 (S W N E *maybe this can be implemented? after choosing the zone, we then choose the direction?)
+- Zone 2
+- Zone 3
+- Zone ....
+- Back
+
+==> Menu Interface Zone
+- Find Enemy (generate randomly encounter enemy)
+- ?? What else??
+- Back
+
+=================================================
 
 => Phase 1 Development
 - Basic fighting mechanic
