@@ -24,7 +24,7 @@ CURRENTLY IN DEVELOPMENT
 - Weapon type (staff for magical, sword for physical), for further development --> dagger for a chance of double pAtk, and orb for double mAtk but has a low damage, or just make so many weapon type for the races 
 - equipment has a different stat based on equipment level type and rarity
 - for further development (customize character race --> every race has a different stat and ability or skill and weaknesses and race is locked with some equipment type like dwarf only with axe, costumize stat --> hihger hp but lower atk or higher atk but lower hp) 
-- Killing enemies (gain xp, and maybe gold)
+- Killing enemies (gain xp, and maybe gold, or maybe items like equipment)
 - Shop for items (equipments)
 - Save game to a txt file and load the game ofcourse
 - Enemy types (every types has a different weaknesses)
