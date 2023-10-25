@@ -5,7 +5,7 @@ This project is created just for fun and to implement my knowledege on OOP funda
 
 CURRENTLY IN DEVELOPMENT
 
-==========================================================================================================
+==========================================================
 
 
 					===== PROJECT ELDGARD GRAND DESIGN =====
@@ -29,8 +29,27 @@ CURRENTLY IN DEVELOPMENT
 - Save game to a txt file and load the game ofcourse
 - Enemy types (every types has a different weaknesses)
 
+==> Area & Mob
+- Castle of Fantanir (dracula castle)
+	- Alucard Van Gogh (B)
+	- Dr Franken (M)
+	- Mighty Dullahan (M)
+	- Elder Lich (M)
+	- Dark Warlock (M)
+	- Vampire
+	- Gargoyle
+	- Mummy
+	- Werewolf
+	- Banshee
+- Greimog Forest
+	- Goblin
+- Ruin of Asvangald
+- Niddrulenn (elven)
+- Etterfrost (snow)
+- Beorgingwnis (fire)
+
 =========================================================
->>> USER INTERFACE PLANNING  <<<
+					==== USER INTERFACE PLANNING  ====
 
 ==> Menu Interface Start (When the game start and put some good ascii art for the title)
 - New Game

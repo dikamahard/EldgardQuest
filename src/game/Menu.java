@@ -52,7 +52,12 @@ public class Menu {
         int area;
         System.out.println("==== Explore the Area ====");
         System.out.println("1. Castle of Fantanir");
-        System.out.println("2. To be added...");
+        System.out.println("2. Greimog Forest ");
+        System.out.println("3. Ruin of Asvangald");
+        System.out.println("4. Niddrulenn");
+        System.out.println("5. Etterfrost");
+        System.out.println("6. Beorgingwnis");
+        System.out.println("7. To be added...");
         System.out.println("---------------------");
         System.out.print(">> ");
         area = input.nextInt();
