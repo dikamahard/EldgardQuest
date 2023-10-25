@@ -38,7 +38,7 @@ public class Main {
             
             // while loop here?
             while(flag){
-                //menu.mainMenu();
+                menu.mainMenu();
                 choice = input.nextInt();
                 switch(choice) {
                     case 1:

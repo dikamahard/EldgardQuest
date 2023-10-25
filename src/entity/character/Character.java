@@ -95,6 +95,8 @@ public abstract class Character extends Creature {
                 System.out.println(this.name + " got " + foe.getExp().getExpDrop() + " experience\n");
                 this.exp.gainExp(foe.getExp().getExpDrop());
                 
+                // hp back to full
+                this.currentHp = this.totalHp;
             }
         }
         

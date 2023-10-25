@@ -66,11 +66,11 @@ public class Menu {
         System.out.println("Greetings adventurer, before we start our adventure lets create your character first !");
         // create character
         gameFunc.createCharacter(player);
-        mainMenu();
     }
 
     public void exploreChoosen() {
         areaMenu();
+        return;
     }
 
     public void characterInfoChoosen() {

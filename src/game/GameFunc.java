@@ -59,7 +59,7 @@ public class GameFunc {
         }else if(act == 2) {
             run();
         }
-        
+        return;
     }
 
     // WHY THIS FUNCTION ISNT UPDATED!!!!
@@ -68,8 +68,8 @@ public class GameFunc {
         while((mob.getCurrentHp() > 0) && (this.player.getCurrentHp() > 0)) {
             this.player.attacking(mob);
             mob.attacking(player);
-            
         }
+        return;
     }
 
     public void run() {
