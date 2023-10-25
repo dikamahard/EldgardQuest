@@ -13,8 +13,10 @@ public class GameFunc {
     // we add character here, so this class can modified player
     // without passing it as an argument because we put the player on this constructor
     // and ofcourse add this class as an antribute for menu class and at the constructor too
-    public GameFunc() {
+    Character player;
 
+    public GameFunc(Character player) {
+        this.player = player;
     }
 
     public void createCharacter(Character player) {
@@ -44,20 +46,40 @@ public class GameFunc {
     }
 
     public void encounterEnemy(Enemy mob) {
+        Scanner input = new Scanner(System.in);
         System.out.println("You have encountered " + mob.getName() + "!!!");
         System.out.println("What are you gonna do ? ");
-        System.out.println("1. Fight ");
+        System.out.println("1. Fight now");
         System.out.println("2. Run ");
-        
+        System.out.println("------------------------");
+        System.out.println(">> ");
+        int act = input.nextInt();
+        if(act == 1) {
+            fight(mob);
+        }else if(act == 2) {
+            run();
+        }
+        return;
+    }
+
+    // WHY THIS FUNCTION ISNT UPDATED!!!!
+    public void fight(Enemy mob) {
+        System.out.println("FIGHTING GOO");
+        while((mob.getCurrentHp() > 0) && (this.player.getCurrentHp() > 0)) {
+            this.player.attacking(mob);
+            mob.attacking(player);
+        }
+        return;
     }
 
     public void run() {
-
+        System.out.println(this.player.getName() + " cowardly choose to run");
     }
 
-    public void fight(Enemy mob, Character player) {
-        
-    }
+
+
+
+
 
     // generate enemy function here 
     public void generateEnemy(int area, int compass) {

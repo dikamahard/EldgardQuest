@@ -39,8 +39,11 @@ public abstract class Enemy extends Creature {
     }
 
     public void attacking(Character foe) {
-        System.out.println(this.name + " is attacking " + foe.getName()) ;
-        foe.defendingFrom(this);
+        if(this.currentHp > 0) {
+            System.out.println(this.name + " is attacking " + foe.getName()) ;
+            foe.defendingFrom(this);
+        }
+        
     };
         
     public void defendingFrom(Character foe) {
