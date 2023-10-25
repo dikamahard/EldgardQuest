@@ -7,15 +7,21 @@ import entity.character.Character;
 public class Menu {
     Scanner input;
     GameFunc gameFunc;
+    Character player;
 
     
-    public Menu() {
+    public Menu(Character player) {
         input = new Scanner(System.in);
-        gameFunc = new GameFunc();
+        gameFunc = new GameFunc(player);
+        this.player = player;
     }
 
 
     // func menu interface
+
+    public Character getCharacter() {
+        return this.player;
+    }
 
     public void startMenu() {
        
@@ -42,7 +48,7 @@ public class Menu {
         System.out.print(">> ");
     }
 
-    public void areaMenu(Character player) {
+    public void areaMenu() {
         int area;
         System.out.println("==== Explore the Area ====");
         System.out.println("1. Castle of Fantanir");
@@ -50,12 +56,12 @@ public class Menu {
         System.out.println("---------------------");
         System.out.print(">> ");
         area = input.nextInt();
-        compassDirection(area, player);
+        compassDirection(area);
     } 
 
 
     // func choice choosen
-    public void newGameChoosen(Character player) {
+    public void newGameChoosen() {
         // maybe some narative intro
         System.out.println("Greetings adventurer, before we start our adventure lets create your character first !");
         // create character
@@ -63,11 +69,11 @@ public class Menu {
         mainMenu();
     }
 
-    public void exploreChoosen(Character player) {
-        areaMenu(player);
+    public void exploreChoosen() {
+        areaMenu();
     }
 
-    public void characterInfoChoosen(Character player) {
+    public void characterInfoChoosen() {
         player.showStatus();
         System.out.println("1. Back");
         if(input.nextInt() == 1) {
@@ -77,7 +83,7 @@ public class Menu {
         }
     }
 
-    public void compassDirection(int area, Character player) {
+    public void compassDirection(int area) {
         int compass;
         System.out.println("1. North");
         System.out.println("2. South");

@@ -87,14 +87,17 @@ public abstract class Character extends Creature {
     };
 
     public void attacking(Enemy foe) {
-        System.out.println(this.name + " is attacking " + foe.getName());
-        foe.defendingFrom(this);
-        if(foe.getCurrentHp() <= 0) {
-            //this for exp gain and levelup and anything you will get from killing the enemy
-            System.out.println(this.name + " got " + foe.getExp().getExpDrop() + " experience\n");
-            this.exp.gainExp(foe.getExp().getExpDrop());
-             
+        if(this.currentHp > 0 ) {
+            System.out.println(this.name + " is attacking " + foe.getName());
+            foe.defendingFrom(this);
+            if(foe.getCurrentHp() <= 0) {
+                //this for exp gain and levelup and anything you will get from killing the enemy
+                System.out.println(this.name + " got " + foe.getExp().getExpDrop() + " experience\n");
+                this.exp.gainExp(foe.getExp().getExpDrop());
+                
+            }
         }
+        
     }
 
     public void defendingFrom(Enemy foe) {

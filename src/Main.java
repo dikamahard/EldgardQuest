@@ -1,9 +1,9 @@
-import entity.*;
+// import entity.*;
 import entity.character.Character;
 import entity.character.Human;
-import entity.enemy.Enemy;
-import entity.enemy.Goblin;
-import equipment.*;
+// import entity.enemy.Enemy;
+// import entity.enemy.Goblin;
+// import equipment.*;
 import game.Menu;
 import java.util.Scanner;
 
@@ -18,9 +18,10 @@ public class Main {
 
         //Goblin foe1 = (Goblin)f1;
 
-        Menu menu = new Menu();
+        
         Scanner input = new Scanner(System.in);
-        Character player = new Human(null);
+        Character player = new Human("");
+        Menu menu = new Menu(player);
 
         boolean flag = true;
         int choice;
@@ -31,7 +32,7 @@ public class Main {
         //menu.startMenu();   // change to main menu
         choice = input.nextInt();
         if(choice == 1) {
-            menu.newGameChoosen(player);
+            menu.newGameChoosen();
             //player.showStatus();
             //menu.mainMenu();
             
@@ -41,11 +42,11 @@ public class Main {
                 choice = input.nextInt();
                 switch(choice) {
                     case 1:
-                        menu.exploreChoosen(player);
+                        menu.exploreChoosen();
                         break;
                     case 2:
                         //player.showStatus();
-                        menu.characterInfoChoosen(player);
+                        menu.characterInfoChoosen();
                         break;
                     case 3:
                         // To be implemented
@@ -67,30 +68,6 @@ public class Main {
             // Load game
         }
 
-        //} while loop close
-
-        //menu.start();
-
-        // System.out.println(" >>> BATTLEEEE!!!\n");
-        // player.attacking(foe1);
-        // foe1.attacking(player);
-        // player.showStatus();
-
-        // player.attacking(foe1);
-        // foe1.attacking(player);
-        // player.showStatus();
-
-        // player.attacking(foe1);
-        // foe1.attacking(player);
-        // player.showStatus();
-
-        // player.attacking(foe1);
-        // foe1.attacking(player);
-        // player.showStatus();
-
-        // player.attacking(foe1);
-        // foe1.attacking(player);
-        // player.showStatus();
 
     }
 }
