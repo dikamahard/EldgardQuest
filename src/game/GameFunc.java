@@ -1,8 +1,15 @@
 package game;
 
+import entity.enemy.Alucard;
+import entity.enemy.Boss;
+import entity.enemy.Common;
 import entity.enemy.Enemy;
+import entity.enemy.Franken;
 import entity.enemy.Goblin;
+import entity.enemy.MiniBoss;
 
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import entity.character.Character;
@@ -14,6 +21,17 @@ public class GameFunc {
     // without passing it as an argument because we put the player on this constructor
     // and ofcourse add this class as an antribute for menu class and at the constructor too
     Character player;
+    //ArrayList<Enemy> monsters = new ArrayList<Enemy>();
+
+    public class Area{
+        String name;
+        ArrayList<ArrayList<Enemy>> monsters = new ArrayList<ArrayList<Enemy>>();
+
+        public Area(String name) {
+            this.name = name;
+        }
+    }
+
 
     public GameFunc(Character player) {
         this.player = player;
@@ -64,7 +82,7 @@ public class GameFunc {
 
     // WHY THIS FUNCTION ISNT UPDATED!!!!
     public void fight(Enemy mob) {
-        System.out.println("FIGHTING GOO");
+        System.out.println("FIGHTING GO !!!");
         while((mob.getCurrentHp() > 0) && (this.player.getCurrentHp() > 0)) {
             this.player.attacking(mob);
             mob.attacking(player);
@@ -82,33 +100,153 @@ public class GameFunc {
 
 
     // generate enemy function here 
+
+    /* 
     public void generateEnemy(int area, int compass) {
-       
+        Area objArea = generateArea(area);
+
         switch(compass) {
             case 1:
+                // west
+                westEnemyGenerate(area); // area can be changed to objArea and so on
+                break;
+            case 2:
+                // east
+                eastEnemyGenerate(area);
+                break;
+            case 3:
                  // north
                  northeEnemyGenerate(area);
                 break;
-            case 2:
+            case 4:
                 // south
                 southEnemyGenerate(area);
                 break;
-            case 3:
+            default:
+        }
+    } */
+
+    public void generateEnemy(int area, int compass) {
+
+        //convert int area to obj
+        Area objArea = generateArea(getAreaName(area));
+
+        switch(compass) {
+            case 1:
                 // west
-                westEnemyGenerate(area);
+                westEnemyGenerate(objArea); 
+                break;
+            case 2:
+                // east
+                eastEnemyGenerate(objArea);
+                break;
+            case 3:
+                 // north
+                 northeEnemyGenerate(objArea); // EXPERIMENTAL
                 break;
             case 4:
-                // east
-                eastEnemyGenerate(area);
+                // south
+                southEnemyGenerate(objArea);
                 break;
             default:
         }
     }
 
+    public void westEnemyGenerate(Area area) {
+        ArrayList<Enemy> monsterList = new ArrayList<>();
+        switch(area.name){
+            case "Castle of Fantanir":
+                monsterList = area.monsters.get(0);
+                encounterEnemy(randomizerEnemy(monsterList));
+                break;
+            case "Greimog Forest":
+                // to be added...
+                break;
+            case "Ruin of Asvangald":
+                // to be added...
+                break;
+            case "Niddrulenn":
+                // to be added...
+                break;
+            case "Etterfrost":
+                // to be added...
+                break;
+            case "Beorggwnis":
+                // to be added...
+                break;
+            default:
+                System.out.println("Unknown area...");
+
+        }
+    }
+
+    public void eastEnemyGenerate(Area area) {
+        ArrayList<Enemy> monsterList = new ArrayList<>();
+        switch(area.name){
+            case "Castle of Fantanir":
+                monsterList = area.monsters.get(1);
+                encounterEnemy(randomizerEnemy(monsterList));
+                break;
+            case "Greimog Forest":
+                // to be added...
+                break;
+            case "Ruin of Asvangald":
+                // to be added...
+                break;
+            case "Niddrulenn":
+                // to be added...
+                break;
+            case "Etterfrost":
+                // to be added...
+                break;
+            case "Beorggwnis":
+                // to be added...
+                break;
+            default:
+                System.out.println("Unknown area...");
+        }
+    }
+
+    public void northeEnemyGenerate(Area area) {
+        ArrayList<Enemy> monsterList = new ArrayList<>();
+        switch(area.name){
+            case "Castle of Fantanir":
+                // mob list
+                //ArrayList<Enemy> monsterList = area.monsters.get(2);
+                monsterList = area.monsters.get(2);
+                // randomize encounter
+                encounterEnemy(randomizerEnemy(monsterList));
+                break;
+            case "Greimog Forest":
+                monsterList = area.monsters.get(2);
+                encounterEnemy(randomizerEnemy(monsterList));
+                break;
+            case "Ruin of Asvangald":
+                // to be added...
+                break;
+            case "Niddrulenn":
+                // to be added...
+                break;
+            case "Etterfrost":
+                // to be added...
+                break;
+            case "Beorggwnis":
+                // to be added...
+                break;
+            default:
+                System.out.println("Unknown area...");
+
+        }
+    }
+
+/* 
     public void northeEnemyGenerate(int area) {
         switch(area){
             case 1:
                 // Castle of Fantanir
+                // mob list
+                // randomize func encounter
+                // encounter   
                 break;
             case 2:
                 // to be added...
@@ -117,55 +255,128 @@ public class GameFunc {
                 System.out.println("Unknown area...");
 
         }
+    } */
+
+    public void southEnemyGenerate(Area area) {
+        ArrayList<Enemy> monsterList = new ArrayList<>();
+        switch(area.name){
+            case "Castle of Fantanir":   
+                monsterList = area.monsters.get(3);
+                encounterEnemy(randomizerEnemy(monsterList));            
+                break;
+            case "Greimog Forest":
+                // to be added...
+                break;
+            case "Ruin of Asvangald":
+                // to be added...
+                break;
+            case "Niddrulenn":
+                // to be added...
+                break;
+            case "Etterfrost":
+                // to be added...
+                break;
+            case "Beorggwnis":
+                // to be added...
+                break;
+            default:
+                System.out.println("Unknown area...");
+        }
     }
 
-    public void southEnemyGenerate(int area) {
-        switch(area){
+    Enemy randomizerEnemy(ArrayList<Enemy> monsterList) {
+        Enemy boss = monsterList.get(0);
+        Enemy miniBoss = monsterList.get(1);
+        Random rand = new Random();
+
+        // Generate a random number between 0 and 1
+        double randomValue = rand.nextDouble();
+
+        Enemy result = null;
+        if(randomValue < 0.01) {    // 1% chance
+            result = boss;
+        }else if(randomValue < 0.01 + 0.05) {   // 5% chance
+            result = miniBoss;
+        }else {     // 94% chance
+            // get the common monster list excluding boss + miniboss
+            ArrayList<Enemy> commonMonster = new ArrayList<Enemy>(monsterList.subList(2, monsterList.size()));
+            
+            // get random monster from the common list
+            Integer index = rand.nextInt(commonMonster.size());
+            result = commonMonster.get(index);
+        }
+        System.out.println(result.toString());
+
+        return result;
+    }
+
+    Area generateArea(String name) {
+        Area area = null;
+        switch(name) {
+            case "Castle of Fantanir": 
+                area = new Area("Castle of Fantanir");
+
+                // west
+                ArrayList<Enemy> west = new ArrayList<Enemy>();
+                west.add(new Boss("Alucard Van Gogh"));
+                west.add(new MiniBoss("Dr Franken"));
+                west.add(new Common("Werewolf"));
+                // east
+                ArrayList<Enemy> east = new ArrayList<Enemy>();
+                east.add(new Boss("Alucard Van Gogh"));
+                east.add(new MiniBoss("Mighty Dullahan"));
+                east.add(new Common("Vampire"));
+                // north
+                ArrayList<Enemy> north = new ArrayList<Enemy>();
+                north.add(new Boss("Alucard Van Gogh"));
+                north.add(new MiniBoss("Elder Lich"));
+                north.add(new Common("Mummy"));
+                // south
+                ArrayList<Enemy> south = new ArrayList<Enemy>();
+                south.add(new Boss("Alucard Van Gogh"));
+                south.add(new MiniBoss("Dark Warlock"));
+                south.add(new Common("Banshee"));
+
+                // add to monster list area
+                area.monsters.add(west);
+                area.monsters.add(east);
+                area.monsters.add(north);
+                area.monsters.add(south);
+                
+                // to acces miniboss of west
+                // area.monsters.get(0).get(1);
+                break;
+            case "Greimog Forest":
+                // to be added...
+                break;
+            case "Ruin of Asvangald":
+                // to be added...
+                break;
+            case "Niddrulenn":
+                // to be added...
+                break;
+            case "Etterfrost":
+                // to be added...
+                break;
+            case "Beorggwnis":
+                // to be added...
+                break;
+        }
+
+        return area;
+    }
+
+    String getAreaName(int choosen) {
+        String areaName = "";
+        switch(choosen) {
             case 1:
-                // Castle of Fantanir
+                areaName = "Castle of Fantanir";
                 break;
-            case 2:
-                // to be added...
-                break;
-            default:
-                System.out.println("Unknown area...");
-
         }
+
+        return areaName;
     }
 
-    public void westEnemyGenerate(int area) {
-        switch(area){
-            case 1:
-                // Castle of Fantanir
-                Enemy goblin = new Goblin("Hemogoblin");
-                // should be random but for now this is fine
-                encounterEnemy(goblin);
-                break;
-            case 2:
-                // to be added...
-                break;
-            default:
-                System.out.println("Unknown area...");
-
-        }
-    }
-
-    public void eastEnemyGenerate(int area) {
-        switch(area){
-            case 1:
-                // Castle of Fantanir
-                break;
-            case 2:
-                // to be added...
-                break;
-            default:
-                System.out.println("Unknown area...");
-
-        }
-    }
-
-    void randomizerEnemy() {
-        // to be implemented to randomize the enemy generator
-    }
+    
 
 }

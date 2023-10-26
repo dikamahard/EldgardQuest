@@ -90,10 +90,11 @@ public class Menu {
 
     public void compassDirection(int area) {
         int compass;
-        System.out.println("1. North");
-        System.out.println("2. South");
-        System.out.println("3. West");
-        System.out.println("4. East");
+        System.out.println("==== Where? ====");
+        System.out.println("1. West");
+        System.out.println("2. East");
+        System.out.println("3. North");
+        System.out.println("4. South");
         System.out.println("---------------------");
         System.out.print(">> ");
         compass = input.nextInt();

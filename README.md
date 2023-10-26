@@ -46,7 +46,7 @@ CURRENTLY IN DEVELOPMENT
 - Ruin of Asvangald
 - Niddrulenn (elven)
 - Etterfrost (snow)
-- Beorgingwnis (fire)
+- Beorggwnis (fire)
 
 =========================================================
 					==== USER INTERFACE PLANNING  ====

@@ -1,10 +1,9 @@
 package entity.enemy;
 
-public class Franken extends Enemy{
-       
-    public Franken(String name) {
+public class Common extends Enemy{
+    public Common(String name){
         super(name);
-        this.totalHp = this.baseHp * 5;
+        this.totalHp = this.baseHp * 2;
         this.currentHp = this.totalHp;
     }
 
