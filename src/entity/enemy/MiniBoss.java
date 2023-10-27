@@ -5,6 +5,7 @@ public class MiniBoss extends Enemy {
         super(name);
         this.totalHp = this.baseHp * 5;
         this.currentHp = this.totalHp;
+        this.setExpDrop(250);
     }
 
     @Override

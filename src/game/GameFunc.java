@@ -1,11 +1,8 @@
 package game;
 
-import entity.enemy.Alucard;
 import entity.enemy.Boss;
 import entity.enemy.Common;
 import entity.enemy.Enemy;
-import entity.enemy.Franken;
-import entity.enemy.Goblin;
 import entity.enemy.MiniBoss;
 
 import java.util.ArrayList;
@@ -95,10 +92,6 @@ public class GameFunc {
     }
 
 
-
-
-
-
     // generate enemy function here 
 
     /* 
@@ -160,19 +153,24 @@ public class GameFunc {
                 encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Greimog Forest":
-                // to be added...
+                monsterList = area.monsters.get(0);
+                encounterEnemy(randomizerEnemy(monsterList));                
                 break;
             case "Ruin of Asvangald":
-                // to be added...
+                monsterList = area.monsters.get(0);
+                encounterEnemy(randomizerEnemy(monsterList));                
                 break;
             case "Niddrulenn":
-                // to be added...
+                monsterList = area.monsters.get(0);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Etterfrost":
-                // to be added...
+                monsterList = area.monsters.get(0);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Beorggwnis":
-                // to be added...
+                monsterList = area.monsters.get(0);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             default:
                 System.out.println("Unknown area...");
@@ -188,19 +186,24 @@ public class GameFunc {
                 encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Greimog Forest":
-                // to be added...
+                monsterList = area.monsters.get(1);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Ruin of Asvangald":
-                // to be added...
+                 monsterList = area.monsters.get(1);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Niddrulenn":
-                // to be added...
+                 monsterList = area.monsters.get(1);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Etterfrost":
-                // to be added...
+                 monsterList = area.monsters.get(1);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Beorggwnis":
-                // to be added...
+                 monsterList = area.monsters.get(1);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             default:
                 System.out.println("Unknown area...");
@@ -222,16 +225,20 @@ public class GameFunc {
                 encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Ruin of Asvangald":
-                // to be added...
+                monsterList = area.monsters.get(2);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Niddrulenn":
-                // to be added...
+                monsterList = area.monsters.get(2);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Etterfrost":
-                // to be added...
+                monsterList = area.monsters.get(2);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Beorggwnis":
-                // to be added...
+                monsterList = area.monsters.get(2);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             default:
                 System.out.println("Unknown area...");
@@ -265,19 +272,24 @@ public class GameFunc {
                 encounterEnemy(randomizerEnemy(monsterList));            
                 break;
             case "Greimog Forest":
-                // to be added...
+                monsterList = area.monsters.get(3);
+                encounterEnemy(randomizerEnemy(monsterList));
                 break;
             case "Ruin of Asvangald":
-                // to be added...
+                monsterList = area.monsters.get(3);
+                encounterEnemy(randomizerEnemy(monsterList));   
                 break;
             case "Niddrulenn":
-                // to be added...
+                monsterList = area.monsters.get(3);
+                encounterEnemy(randomizerEnemy(monsterList));   
                 break;
             case "Etterfrost":
-                // to be added...
+                monsterList = area.monsters.get(3);
+                encounterEnemy(randomizerEnemy(monsterList));   
                 break;
             case "Beorggwnis":
-                // to be added...
+                monsterList = area.monsters.get(3);
+                encounterEnemy(randomizerEnemy(monsterList));   
                 break;
             default:
                 System.out.println("Unknown area...");
@@ -321,21 +333,29 @@ public class GameFunc {
                 west.add(new Boss("Alucard Van Gogh"));
                 west.add(new MiniBoss("Dr Franken"));
                 west.add(new Common("Werewolf"));
+                west.add(new Common("Gargoyle"));
+                west.add(new Common("Vampire"));
                 // east
                 ArrayList<Enemy> east = new ArrayList<Enemy>();
                 east.add(new Boss("Alucard Van Gogh"));
                 east.add(new MiniBoss("Mighty Dullahan"));
-                east.add(new Common("Vampire"));
+                east.add(new Common("Pumpkin King"));
+                east.add(new Common("Headless Horseman"));
+                east.add(new Common("Deadly Jester"));
                 // north
                 ArrayList<Enemy> north = new ArrayList<Enemy>();
                 north.add(new Boss("Alucard Van Gogh"));
                 north.add(new MiniBoss("Elder Lich"));
                 north.add(new Common("Mummy"));
+                north.add(new Common("Zombie"));
+                north.add(new Common("Undead"));
                 // south
                 ArrayList<Enemy> south = new ArrayList<Enemy>();
                 south.add(new Boss("Alucard Van Gogh"));
                 south.add(new MiniBoss("Dark Warlock"));
                 south.add(new Common("Banshee"));
+                south.add(new Common("Screaming Soul"));
+                south.add(new Common("Lost Spirit"));
 
                 // add to monster list area
                 area.monsters.add(west);
@@ -347,19 +367,194 @@ public class GameFunc {
                 // area.monsters.get(0).get(1);
                 break;
             case "Greimog Forest":
-                // to be added...
+                area = new Area("Greimog Forest");
+
+                // west
+                west = new ArrayList<Enemy>();
+                west.add(new Boss("Eldritch the Ancient"));
+                west.add(new MiniBoss("Warbear"));
+                west.add(new Common("Griffon"));
+                west.add(new Common("Dire Wolf"));
+                west.add(new Common("Dark Horse"));
+                // east
+                east = new ArrayList<Enemy>();
+                east.add(new Boss("Eldritch the Ancient"));
+                east.add(new MiniBoss("Queen Dryad"));
+                east.add(new Common("Nature Fae"));
+                east.add(new Common("Walking Snapdragon"));
+                east.add(new Common("Mud Slime"));
+                // north
+                north = new ArrayList<Enemy>();
+                north.add(new Boss("Eldritch the Ancient"));
+                north.add(new MiniBoss("Corrupted Druid"));
+                north.add(new Common("Treant"));
+                north.add(new Common("Bear Lion"));
+                north.add(new Common("Wendigo"));
+                // south
+                south = new ArrayList<Enemy>();
+                south.add(new Boss("Eldritch the Ancient"));
+                south.add(new MiniBoss("Green Dragon"));
+                south.add(new Common("Giant"));
+                south.add(new Common("Troll"));
+                south.add(new Common("Goblin"));
+
+                // add to monster list area
+                area.monsters.add(west);
+                area.monsters.add(east);
+                area.monsters.add(north);
+                area.monsters.add(south);
                 break;
             case "Ruin of Asvangald":
-                // to be added...
+                area = new Area("Ruin of Asvangald");
+
+                // west
+                west = new ArrayList<Enemy>();
+                west.add(new Boss("Wall of Destiny"));
+                west.add(new MiniBoss("Minotaur"));
+                west.add(new Common("Arachne"));
+                west.add(new Common("Lamia"));
+                west.add(new Common("Gorgon"));
+                // east
+                east = new ArrayList<Enemy>();
+                east.add(new Boss("Wall of Destiny"));
+                east.add(new MiniBoss("Stone Basilisk"));
+                east.add(new Common("Lizardian"));
+                east.add(new Common("Serpent"));
+                east.add(new Common("Two Headed Snake"));
+                // north
+                north = new ArrayList<Enemy>();
+                north.add(new Boss("Wall of Destiny"));
+                north.add(new MiniBoss("Guardian Statue"));
+                north.add(new Common("Golem"));
+                north.add(new Common("Elemental"));
+                north.add(new Common("Boulder"));
+                // south
+                south = new ArrayList<Enemy>();
+                south.add(new Boss("Wall of Destiny"));
+                south.add(new MiniBoss("The Revenant"));
+                south.add(new Common("Undead"));
+                south.add(new Common("Howl"));
+                south.add(new Common("Grimm"));
+
+                // add to monster list area
+                area.monsters.add(west);
+                area.monsters.add(east);
+                area.monsters.add(north);
+                area.monsters.add(south);
                 break;
             case "Niddrulenn":
-                // to be added...
+                area  = new Area("Niddrulenn");
+
+                // west
+                west = new ArrayList<Enemy>();
+                west.add(new Boss("Lord Kzaroth"));
+                west.add(new MiniBoss("Azogg The Destroyer"));
+                west.add(new Common("Orc Warrior"));
+                west.add(new Common("Orc Berserker"));
+                west.add(new Common("Orc Shadow"));
+                // east
+                east = new ArrayList<Enemy>();
+                east.add(new Boss("King Nadurill"));
+                east.add(new MiniBoss("Lanoir The Bright"));
+                east.add(new Common("Elven Drow"));
+                east.add(new Common("Dark Elf"));
+                east.add(new Common("Elf Archer"));
+                // north
+                north = new ArrayList<Enemy>();
+                north.add(new Boss("Lord Kzaroth"));
+                north.add(new MiniBoss("Gorloth The Fallen"));
+                north.add(new Common("Orc Shaman"));
+                north.add(new Common("Orc Necromancer"));
+                north.add(new Common("Orc Warlock"));
+                // south
+                south = new ArrayList<Enemy>();
+                south.add(new Boss("King Nadurill"));
+                south.add(new MiniBoss("Tirnanill The Ascended"));
+                south.add(new Common("ELf Assasin"));
+                south.add(new Common("Priest Elf"));
+                south.add(new Common("Elf Magus"));
+
+                // add to monster list area
+                area.monsters.add(west);
+                area.monsters.add(east);
+                area.monsters.add(north);
+                area.monsters.add(south);                
                 break;
             case "Etterfrost":
-                // to be added...
+                area = new Area("Etterfrost");
+
+                // west
+                west = new ArrayList<Enemy>();
+                west.add(new Boss("Jack Frost"));
+                west.add(new MiniBoss("Yuki Onna"));
+                west.add(new Common("Yeti"));
+                west.add(new Common("Snowman"));
+                west.add(new Common("Snow Wolf"));
+                // east
+                east = new ArrayList<Enemy>();
+                east.add(new Boss("Jack Frost"));
+                east.add(new MiniBoss("Aurora Arboreal"));
+                east.add(new Common("Glacial Elemental"));
+                east.add(new Common("Polar Bear"));
+                east.add(new Common("Frost Giant"));
+                // north
+                north = new ArrayList<Enemy>();
+                north.add(new Boss("Jack Frost"));
+                north.add(new MiniBoss("Cryomancer"));
+                north.add(new Common("Moving Blizzard"));
+                north.add(new Common("Frostbite Phantom"));
+                north.add(new Common("Frozen Undead"));
+                // south
+                south = new ArrayList<Enemy>();
+                south.add(new Boss("Jack Frost"));
+                south.add(new MiniBoss("Frost Dragon"));
+                south.add(new Common("Frozen Spirit"));
+                south.add(new Common("Ice Phantom"));
+                south.add(new Common("Arctic Fox"));
+
+                // add to monster list area
+                area.monsters.add(west);
+                area.monsters.add(east);
+                area.monsters.add(north);
+                area.monsters.add(south);
                 break;
             case "Beorggwnis":
-                // to be added...
+                area = new Area("Beorggwnis");
+
+                // west
+                west = new ArrayList<Enemy>();
+                west.add(new Boss("Azarok Ignia"));
+                west.add(new MiniBoss("Ascended Nine Tails"));
+                west.add(new Common("Lava Golem"));
+                west.add(new Common("Fire Imp"));
+                west.add(new Common("Hell Cat"));
+                // east
+                east = new ArrayList<Enemy>();
+                east.add(new Boss("Azarok Ignia"));
+                east.add(new MiniBoss("Pyromancer"));
+                east.add(new Common("Lava Spirit"));
+                east.add(new Common("Flame Elemental"));
+                east.add(new Common("Ashen Undead"));
+                // north
+                north = new ArrayList<Enemy>();
+                north.add(new Boss("Azarok Ignia"));
+                north.add(new MiniBoss("Ancient Phoenix"));
+                north.add(new Common("Hell Hound"));
+                north.add(new Common("Volcanic Elemental"));
+                north.add(new Common("Obsidian Guardian"));
+                // south
+                south = new ArrayList<Enemy>();
+                south.add(new Boss("Azarok Ignia"));
+                south.add(new MiniBoss("Red Dragon"));
+                south.add(new Common("Salamander"));
+                south.add(new Common("Wyvern"));
+                south.add(new Common("Dragonling"));
+
+                // add to monster list area
+                area.monsters.add(west);
+                area.monsters.add(east);
+                area.monsters.add(north);
+                area.monsters.add(south);
                 break;
         }
 
@@ -371,6 +566,21 @@ public class GameFunc {
         switch(choosen) {
             case 1:
                 areaName = "Castle of Fantanir";
+                break;
+            case 2:
+                areaName = "Greimog Forest";
+                break;
+            case 3:
+                areaName = "Ruin of Asvangald";
+                break;
+            case 4:
+                areaName = "Niddrulenn";
+                break;
+            case 5:
+                areaName = "Etterfrost";
+                break;
+            case 6:
+                areaName = "Beorggwnis";
                 break;
         }
 

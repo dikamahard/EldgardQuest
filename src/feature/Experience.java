@@ -19,8 +19,8 @@ public class Experience {
     }
 
     public void levelUp() {
-        System.out.println("LEVEL UP!!");
-        this.expCap += 100; 
+        System.out.println("!! LEVEL UP !!");
+        this.expCap *= 2; 
         this.lvl++;
         this.currentExp = 0;
     }
@@ -40,6 +40,11 @@ public class Experience {
     public long getExpCap() {
         return this.expCap;
     }
+
+    public void setExpDrop(long expDrop) {
+        this.expDrop = expDrop;
+    }
+
 
     public void gainExp(long exp) {
         this.currentExp += exp;

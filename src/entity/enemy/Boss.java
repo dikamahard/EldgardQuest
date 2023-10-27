@@ -5,6 +5,7 @@ public class Boss extends Enemy{
         super(name);
         this.totalHp = this.baseHp * 10;
         this.currentHp = this.totalHp;
+        this.setExpDrop(500);
     }
 
     @Override

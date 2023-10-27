@@ -90,7 +90,7 @@ public class Menu {
 
     public void compassDirection(int area) {
         int compass;
-        System.out.println("==== Where? ====");
+        System.out.println("==== Choose Direction ====");
         System.out.println("1. West");
         System.out.println("2. East");
         System.out.println("3. North");
@@ -100,70 +100,6 @@ public class Menu {
         compass = input.nextInt();
         gameFunc.generateEnemy(area, compass);
     }
-
-
-
-
-
-
-    
-    // public void northeEnemyGenerate(int area) {
-    //     switch(area){
-    //         case 1:
-    //             // Castle of Fantanir
-    //             break;
-    //         case 2:
-    //             // to be added...
-    //             break;
-    //         default:
-    //             System.out.println("Unknown area...");
-
-    //     }
-    // }
-
-    // public void SouthEnemyGenerate(int area) {
-    //     switch(area){
-    //         case 1:
-    //             // Castle of Fantanir
-    //             break;
-    //         case 2:
-    //             // to be added...
-    //             break;
-    //         default:
-    //             System.out.println("Unknown area...");
-
-    //     }
-    // }
-
-    // public void WestEnemyGenerate(int area) {
-    //     switch(area){
-    //         case 1:
-    //             // Castle of Fantanir
-    //             Enemy goblin = new Goblin("Hemogoblin");
-    //             gameFunc.encounterEnemy(goblin);
-    //             break;
-    //         case 2:
-    //             // to be added...
-    //             break;
-    //         default:
-    //             System.out.println("Unknown area...");
-
-    //     }
-    // }
-
-    // public void eastEnemyGenerate(int area) {
-    //     switch(area){
-    //         case 1:
-    //             // Castle of Fantanir
-    //             break;
-    //         case 2:
-    //             // to be added...
-    //             break;
-    //         default:
-    //             System.out.println("Unknown area...");
-
-    //     }
-    // }
 
     
 }

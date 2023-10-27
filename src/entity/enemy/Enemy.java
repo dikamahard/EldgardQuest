@@ -45,6 +45,10 @@ public abstract class Enemy extends Creature {
         }
         
     };
+
+    public void setExpDrop(long expDrop) {
+        this.exp.setExpDrop(expDrop);
+    }
         
     public void defendingFrom(Character foe) {
         System.out.println(this.name + " got damaged by " + foe.getName() + " for " + foe.getAtkDamage(this.pDef, this.mDef) + "damage\n");
