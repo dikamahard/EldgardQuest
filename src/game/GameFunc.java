@@ -120,133 +120,18 @@ public class GameFunc {
     } */
 
     public void generateEnemy(int area, int compass) {
+        int compassIndex = compass - 1;
 
-        //convert int area to obj
+        // convert int area to obj
         Area objArea = generateArea(getAreaName(area));
 
-        switch(compass) {
-            case 1:
-                // west
-                westEnemyGenerate(objArea); 
-                break;
-            case 2:
-                // east
-                eastEnemyGenerate(objArea);
-                break;
-            case 3:
-                 // north
-                 northeEnemyGenerate(objArea); // EXPERIMENTAL
-                break;
-            case 4:
-                // south
-                southEnemyGenerate(objArea);
-                break;
-            default:
-        }
-    }
-
-    public void westEnemyGenerate(Area area) {
+        // get the monster list and generate according to the choosen compass
         ArrayList<Enemy> monsterList = new ArrayList<>();
-        switch(area.name){
-            case "Castle of Fantanir":
-                monsterList = area.monsters.get(0);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Greimog Forest":
-                monsterList = area.monsters.get(0);
-                encounterEnemy(randomizerEnemy(monsterList));                
-                break;
-            case "Ruin of Asvangald":
-                monsterList = area.monsters.get(0);
-                encounterEnemy(randomizerEnemy(monsterList));                
-                break;
-            case "Niddrulenn":
-                monsterList = area.monsters.get(0);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Etterfrost":
-                monsterList = area.monsters.get(0);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Beorggwnis":
-                monsterList = area.monsters.get(0);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            default:
-                System.out.println("Unknown area...");
-
-        }
+        monsterList = objArea.monsters.get(compassIndex);
+        encounterEnemy(randomizerEnemy(monsterList));
     }
 
-    public void eastEnemyGenerate(Area area) {
-        ArrayList<Enemy> monsterList = new ArrayList<>();
-        switch(area.name){
-            case "Castle of Fantanir":
-                monsterList = area.monsters.get(1);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Greimog Forest":
-                monsterList = area.monsters.get(1);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Ruin of Asvangald":
-                 monsterList = area.monsters.get(1);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Niddrulenn":
-                 monsterList = area.monsters.get(1);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Etterfrost":
-                 monsterList = area.monsters.get(1);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Beorggwnis":
-                 monsterList = area.monsters.get(1);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            default:
-                System.out.println("Unknown area...");
-        }
-    }
-
-    public void northeEnemyGenerate(Area area) {
-        ArrayList<Enemy> monsterList = new ArrayList<>();
-        switch(area.name){
-            case "Castle of Fantanir":
-                // mob list
-                //ArrayList<Enemy> monsterList = area.monsters.get(2);
-                monsterList = area.monsters.get(2);
-                // randomize encounter
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Greimog Forest":
-                monsterList = area.monsters.get(2);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Ruin of Asvangald":
-                monsterList = area.monsters.get(2);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Niddrulenn":
-                monsterList = area.monsters.get(2);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Etterfrost":
-                monsterList = area.monsters.get(2);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Beorggwnis":
-                monsterList = area.monsters.get(2);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            default:
-                System.out.println("Unknown area...");
-
-        }
-    }
-
-/* 
+    /* 
     public void northeEnemyGenerate(int area) {
         switch(area){
             case 1:
@@ -263,38 +148,6 @@ public class GameFunc {
 
         }
     } */
-
-    public void southEnemyGenerate(Area area) {
-        ArrayList<Enemy> monsterList = new ArrayList<>();
-        switch(area.name){
-            case "Castle of Fantanir":   
-                monsterList = area.monsters.get(3);
-                encounterEnemy(randomizerEnemy(monsterList));            
-                break;
-            case "Greimog Forest":
-                monsterList = area.monsters.get(3);
-                encounterEnemy(randomizerEnemy(monsterList));
-                break;
-            case "Ruin of Asvangald":
-                monsterList = area.monsters.get(3);
-                encounterEnemy(randomizerEnemy(monsterList));   
-                break;
-            case "Niddrulenn":
-                monsterList = area.monsters.get(3);
-                encounterEnemy(randomizerEnemy(monsterList));   
-                break;
-            case "Etterfrost":
-                monsterList = area.monsters.get(3);
-                encounterEnemy(randomizerEnemy(monsterList));   
-                break;
-            case "Beorggwnis":
-                monsterList = area.monsters.get(3);
-                encounterEnemy(randomizerEnemy(monsterList));   
-                break;
-            default:
-                System.out.println("Unknown area...");
-        }
-    }
 
     Enemy randomizerEnemy(ArrayList<Enemy> monsterList) {
         Enemy boss = monsterList.get(0);
@@ -317,7 +170,7 @@ public class GameFunc {
             Integer index = rand.nextInt(commonMonster.size());
             result = commonMonster.get(index);
         }
-        System.out.println(result.toString());
+        //System.out.println(result.toString());
 
         return result;
     }
