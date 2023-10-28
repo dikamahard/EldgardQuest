@@ -1,4 +1,7 @@
 package entity.enemy;
+import feature.Dice;
+import java.util.Random;
+
 
 public class Boss extends Enemy{
     public Boss(String name){
@@ -6,10 +9,21 @@ public class Boss extends Enemy{
         this.totalHp = this.baseHp * 10;
         this.currentHp = this.totalHp;
         this.setExpDrop(500);
+
+        // implement dice rolling mechanic for Boss monster
+        this.dice = new Dice(10) {
+            @Override
+            public int rollDice() {
+                Random rand = new Random();
+                int diceRolled = rand.nextInt(this.getMaxRange()) + 5;
+
+                return diceRolled;
+            }
+        };
     }
 
     @Override
-    public double getAtkDamage(double enemyPDef, double enemyMDef) {
-        return calculateDamage(baseAtk, mAtk, pAtk, enemyPDef, enemyMDef);
+    public double getAtkDamage(double enemyPDef, double enemyMDef, int diceRolled) {
+        return calculateDamage(diceRolled * baseAtk, mAtk, pAtk, enemyPDef, enemyMDef);
     }
 }

@@ -1,8 +1,11 @@
 package entity;
 
+import feature.Dice;
+
 public abstract class Creature {
     protected double baseHp;
     protected String name;
+    protected Dice dice;
 
 
     public Creature(String name) {

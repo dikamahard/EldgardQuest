@@ -40,8 +40,10 @@ public abstract class Enemy extends Creature {
 
     public void attacking(Character foe) {
         if(this.currentHp > 0) {
-            System.out.println(this.name + " is attacking " + foe.getName()) ;
-            foe.defendingFrom(this);
+            int diceRolled = dice.rollDice();
+
+            System.out.println(this.name + " rolled the dice for " + diceRolled) ;
+            foe.defendingFrom(this, diceRolled);
         }
         
     };
@@ -50,9 +52,9 @@ public abstract class Enemy extends Creature {
         this.exp.setExpDrop(expDrop);
     }
         
-    public void defendingFrom(Character foe) {
-        System.out.println(this.name + " got damaged by " + foe.getName() + " for " + foe.getAtkDamage(this.pDef, this.mDef) + "damage\n");
-        this.healthReduceBy(foe.getAtkDamage(this.pDef, this.mDef));
+    public void defendingFrom(Character foe, int diceRolled) {
+        System.out.println(this.name + " got damaged by " + foe.getName() + " for " + foe.getAtkDamage(this.pDef, this.mDef, diceRolled) + "damage\n");
+        this.healthReduceBy(foe.getAtkDamage(this.pDef, this.mDef, diceRolled));
         // if(this.currentHp <= 0) {
         //     System.out.println(foe.name + " got " + this.exp.getExpDrop() + " experience\n");
         //     foe.exp.gainExp(this.exp.getExpDrop());
@@ -73,7 +75,7 @@ public abstract class Enemy extends Creature {
     };
 
     // attack damage
-    public abstract double getAtkDamage(double enemyPDef, double enemyMDef);
+    public abstract double getAtkDamage(double enemyPDef, double enemyMDef, int diceRolled);
 
     public double calculateDamage(double baseAtk, double mAtk, double pAtk, double enemyPDef, double enemyMDef) {
         double e1 = (enemyPDef + enemyMDef) / baseAtk;
@@ -81,5 +83,13 @@ public abstract class Enemy extends Creature {
         double e3 = enemyMDef / mAtk;
         return (baseAtk / Math.pow(2, e1)) + (pAtk / Math.pow(2, e2)) + (mAtk / Math.pow(2, e3));
     }
+
+    // Dice roll
+    // int rollDice() {
+    //     Random rand = new Random();
+    //     int diceRolled = rand.nextInt(6) + 1;
+
+    //     return diceRolled;
+    // }
 
 }

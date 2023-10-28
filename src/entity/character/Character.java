@@ -86,10 +86,13 @@ public abstract class Character extends Creature {
         System.out.println("HP : " + this.currentHp + "/" + this.totalHp + "\n");
     };
 
+    // plus dice rolll
     public void attacking(Enemy foe) {
         if(this.currentHp > 0 ) {
-            System.out.println(this.name + " is attacking " + foe.getName());
-            foe.defendingFrom(this);
+            int diceRolled = dice.rollDice();
+            // System.out.println(this.name + " is attacking " + foe.getName());
+            System.out.println(this.name + " rolled the dice for " + diceRolled);
+            foe.defendingFrom(this, diceRolled);
             if(foe.getCurrentHp() <= 0) {
                 //this for exp gain and levelup and anything you will get from killing the enemy
                 System.out.println(this.name + " got " + foe.getExp().getExpDrop() + " experience\n");
@@ -102,9 +105,9 @@ public abstract class Character extends Creature {
         
     }
 
-    public void defendingFrom(Enemy foe) {
-        System.out.println(this.name + " got damaged by " + foe.getName() + " for "  + foe.getAtkDamage(this.pDef, this.mDef) + "damage\n");
-        this.healthReduceBy(foe.getAtkDamage(this.pDef, this.mDef));
+    public void defendingFrom(Enemy foe, int diceRolled) {
+        System.out.println(this.name + " got damaged by " + foe.getName() + " for "  + foe.getAtkDamage(this.pDef, this.mDef, diceRolled) + "damage\n");
+        this.healthReduceBy(foe.getAtkDamage(this.pDef, this.mDef, diceRolled));
         
     }
 
@@ -117,7 +120,7 @@ public abstract class Character extends Creature {
     }
 
     // attack damage formulation will be difference depending on each race
-    public abstract double getAtkDamage(double enemyPDef, double enemyMDef);
+    public abstract double getAtkDamage(double enemyPDef, double enemyMDef, int diceRolled);
 
 
     // Damage Formula
@@ -126,7 +129,6 @@ public abstract class Character extends Creature {
         double e2 = enemyPDef / pAtk;
         double e3 = enemyMDef / mAtk;
         return (baseAtk / Math.pow(2, e1)) + (pAtk / Math.pow(2, e2)) + (mAtk / Math.pow(2, e3));
-    }
-        
+    }    
 
 }

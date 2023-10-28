@@ -20,7 +20,7 @@ public class GameFunc {
     Character player;
     //ArrayList<Enemy> monsters = new ArrayList<Enemy>();
 
-    public class Area{
+    private class Area{
         String name;
         ArrayList<ArrayList<Enemy>> monsters = new ArrayList<ArrayList<Enemy>>();
 
@@ -80,10 +80,29 @@ public class GameFunc {
     // WHY THIS FUNCTION ISNT UPDATED!!!!
     public void fight(Enemy mob) {
         System.out.println("FIGHTING GO !!!");
-        while((mob.getCurrentHp() > 0) && (this.player.getCurrentHp() > 0)) {
-            this.player.attacking(mob);
-            mob.attacking(player);
-        }
+
+        do {
+            Scanner input = new Scanner(System.in);
+            // this.player.attacking(mob);
+            // mob.attacking(player);
+            System.out.println("What will you do?");
+            System.out.println("1. Roll the dice");
+            System.out.println("2. Potion");
+            System.out.println("3. Flee");
+            System.out.println("---------------------");
+            System.out.print(">>");
+            int choice = input.nextInt();
+            switch (choice) {
+                case 1:
+                    this.player.attacking(mob);
+                    mob.attacking(player);
+                    break;
+            
+                default:
+                    break;
+            }
+        } while((mob.getCurrentHp() > 0) && (this.player.getCurrentHp() > 0));
+
         return;
     }
 
@@ -439,7 +458,6 @@ public class GameFunc {
 
         return areaName;
     }
-
     
 
 }
