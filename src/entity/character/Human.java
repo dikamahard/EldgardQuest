@@ -8,7 +8,7 @@ public class Human extends Character{
     // -> equipment
     // armor
     // weapon
-    private Weapon weapon;
+    // private Weapon weapon;
 
     public Human(String name) {
         super(name);
@@ -31,13 +31,6 @@ public class Human extends Character{
         return calculateDamage(diceRolled * baseAtk, mAtk, pAtk, enemyPDef, enemyMDef);
     }
 
-    public void equipWeapon(Weapon weapon) {
-        this.weapon = weapon;
-    }
-
-    public Weapon getWeapon() {
-        return this.weapon;
-    }
 
 //    @Override
 //    protected void getTotalDamage() {

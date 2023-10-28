@@ -1,18 +1,13 @@
 package equipment;
 
-public class Weapon {
+public class Weapon extends Equipment{
     protected double pAtk;
     protected double mAtk;
-    protected String name;
 
     public Weapon(String name, int pAtk, int mAtk){
         this.pAtk = pAtk;
         this.mAtk = mAtk;
         this.name = name;
-    }
-
-    public String getName() {
-        return this.name;
     }
 
     public double getPAtk() {
@@ -31,7 +26,4 @@ public class Weapon {
         this.mAtk = mAtk;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }

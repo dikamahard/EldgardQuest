@@ -1,6 +1,8 @@
 // import entity.*;
 import entity.character.Character;
 import entity.character.Human;
+import equipment.Armor;
+import equipment.Weapon;
 // import entity.enemy.Enemy;
 // import entity.enemy.Goblin;
 // import equipment.*;
@@ -35,7 +37,10 @@ public class Main {
             menu.newGameChoosen();
             //player.showStatus();
             //menu.mainMenu();
-            
+
+            // test inventory system
+            player.getInventory().addItem(new Armor("Bronze Armor", 5, 5));
+            player.getInventory().addItem(new Weapon("Bronze Sword", 5, 5));
             // while loop here?
             while(flag){
                 menu.mainMenu();
@@ -50,7 +55,8 @@ public class Main {
                         break;
                     case 3:
                         // To be implemented
-                        // shop
+                        // inventory
+                        menu.inventoryChoosen();
                         break;
                     case 4:
                         // To be implemented

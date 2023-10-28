@@ -1,7 +1,12 @@
 package entity.character;
+
 import entity.Creature;
 import entity.enemy.Enemy;
+import equipment.Armor;
+import equipment.Equipment;
+import equipment.Weapon;
 import feature.Experience;
+import feature.Inventory;
 
 public abstract class Character extends Creature {
     protected double baseAtk;
@@ -12,6 +17,12 @@ public abstract class Character extends Creature {
     protected double currentHp;
     protected double totalHp;
     protected Experience exp;
+    protected Inventory inventory;
+    // -> equipment
+    // armor
+    // weapon
+    protected Weapon weapon;
+    protected Armor armor;
 
     public Character(String name) {
         super(name);
@@ -19,10 +30,31 @@ public abstract class Character extends Creature {
         this.pDef = 1;
         this.mDef = 1;
         this.exp = new Experience(100, 1, 0);
+        this.inventory = new Inventory(10);
     }
 
     public Experience getExp() {
         return this.exp;
+    }
+
+    public Inventory getInventory() {
+        return this.inventory;
+    }
+
+    public void equipWeapon(Equipment weapon) {
+        this.weapon = (Weapon)weapon;
+        this.pAtk += this.weapon.getPAtk();
+        this.mAtk += this.weapon.getMAtk();      
+    }
+
+    public void equipArmor(Equipment armor) {
+        this.armor = (Armor)armor;
+        this.pDef += this.armor.getPDef();
+        this.mDef += this.armor.getMDef();      
+    }
+
+    public Weapon getWeapon() {
+        return this.weapon;
     }
 
     public double getCurrentHp() {
@@ -115,8 +147,16 @@ public abstract class Character extends Creature {
         System.out.println("Character Name : " + this.name);
         System.out.println("Character Hp : " + this.currentHp + "/" + this.totalHp);
         System.out.println("Character Base Attack : " + this.baseAtk);
+        System.out.println("Character Physical Attack : " + this.pAtk);
+        System.out.println("Character Magical Attack : " + this.mAtk);
+        System.out.println("Character Physical Deffense : " + this.pDef);
+        System.out.println("Character Magical Deffense : " + this.mDef);
         System.out.println("Caharacter Level : " + this.exp.getLvl());
         System.out.println("Character Exp : " + this.exp.getCurrentExp() + "/" + this.exp.getExpCap() + "\n");
+       
+        // NEED NULL SAFETY
+        System.out.println("Equipped Weapon : " + (this.weapon != null ?  this.weapon.getName() + ", pAtk : " + this.weapon.getPAtk() + ", mAtk : " + this.weapon.getMAtk() : "None"));
+        System.out.println("Equipped Armor : " + (this.armor != null ?  this.armor.getName() + ", pDef : " + this.armor.getPDef() + ", mDef : " + this.armor.getMDef() : "None"));
     }
 
     // attack damage formulation will be difference depending on each race

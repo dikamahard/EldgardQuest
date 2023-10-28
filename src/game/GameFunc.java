@@ -4,6 +4,8 @@ import entity.enemy.Boss;
 import entity.enemy.Common;
 import entity.enemy.Enemy;
 import entity.enemy.MiniBoss;
+import equipment.Equipment;
+import equipment.Weapon;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -458,6 +460,33 @@ public class GameFunc {
 
         return areaName;
     }
+
+    public void sellInventory() {
+        Scanner input = new Scanner(System.in);
+        player.getInventory().printListEquipments();
+        System.out.println("");
+        System.out.println("Choose what you wanna delete :");
+        System.out.println("------------------------");
+        System.out.print(">> ");
+        int index = input.nextInt() - 1;
+        player.getInventory().removeItem(index);
+    }
     
+    public void equipInventory() {
+        Scanner input = new Scanner(System.in);
+        player.getInventory().printListEquipments();
+        System.out.println("");
+        System.out.println("Choose what you wanna equip :");
+        System.out.println("------------------------");
+        System.out.print(">> ");
+        int index = input.nextInt() - 1;
+        Equipment equip = player.getInventory().getEquipment(index);
+        if(equip instanceof Weapon) {
+            player.equipWeapon(player.getInventory().getEquipment(index));
+        }else {
+            player.equipArmor(player.getInventory().getEquipment(index));
+        }
+
+    }
 
 }

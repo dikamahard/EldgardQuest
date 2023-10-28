@@ -1,18 +1,15 @@
 package equipment;
 
-public class Armor {
+public class Armor extends Equipment{
     protected double pDef;
     protected double mDef;
-    protected String name;
 
-    public Armor(String name, double pDef) {
+    public Armor(String name, double pDef, double mDef) {
         this.name = name;
         this.pDef = pDef;
+        this.mDef = mDef;
     }
 
-    public String getName() {
-        return this.name;
-    }
 
     public double getPDef() {
         return this.pDef;
@@ -28,9 +25,5 @@ public class Armor {
 
     public void setMDef(double mDef) {
         this.mDef = mDef;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

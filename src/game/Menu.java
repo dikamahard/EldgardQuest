@@ -41,9 +41,10 @@ public class Menu {
         System.out.println("==== Main Menu ====");
         System.out.println("1. Explore");
         System.out.println("2. Character Info");
-        System.out.println("3. Shop");
-        System.out.println("4. Save Game");
-        System.out.println("5. Exit Game");
+        System.out.println("3. Inventory");
+        System.out.println("4. Shop");
+        System.out.println("5. Save Game");
+        System.out.println("6. Exit Game");
         System.out.println("---------------------");
         System.out.print(">> ");
     }
@@ -80,11 +81,35 @@ public class Menu {
 
     public void characterInfoChoosen() {
         player.showStatus();
+        System.out.println("---------------------");
         System.out.println("1. Back");
+        System.out.print(">> ");
         if(input.nextInt() == 1) {
             mainMenu();
         }else {
             
+        }
+    }
+
+    public void inventoryChoosen() {
+        player.getInventory().printListEquipments();
+        System.out.println("---------------------");
+        System.out.println("1. Sell");
+        System.out.println("2. Equip");
+        System.out.println("3. Back");
+        System.out.print(">> ");
+        switch (input.nextInt()) {
+            case 1:
+                gameFunc.sellInventory();
+                break;
+            case 2:
+                gameFunc.equipInventory();
+                break;
+            case 3:
+                mainMenu();
+                break;
+            default:
+                break;
         }
     }
 
