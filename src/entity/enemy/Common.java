@@ -1,4 +1,6 @@
 package entity.enemy;
+import java.util.Random;
+
 import feature.Dice;
 
 public class Common extends Enemy{
@@ -12,5 +14,11 @@ public class Common extends Enemy{
     @Override
     public double getAtkDamage(double enemyPDef, double enemyMDef, int diceRolled) {
         return calculateDamage(diceRolled * baseAtk, mAtk, pAtk, enemyPDef, enemyMDef);
+    }
+
+    @Override
+    public int getGoldDrop() {
+        Random rand = new Random();
+        return 10 + rand.nextInt(15);
     }
 }

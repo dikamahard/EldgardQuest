@@ -9,6 +9,7 @@ public class Inventory {
     
     public Inventory(int initialSlot) {
         this.maxSlot = initialSlot;
+        this.gold = 0;
     }
 
     public void setGold(int gold) {

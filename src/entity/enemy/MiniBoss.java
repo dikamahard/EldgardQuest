@@ -25,4 +25,10 @@ public class MiniBoss extends Enemy {
     public double getAtkDamage(double enemyPDef, double enemyMDef, int diceRolled) {
         return calculateDamage(diceRolled * baseAtk, mAtk, pAtk, enemyPDef, enemyMDef);
     }
+
+    @Override
+    public int getGoldDrop() {
+        Random rand = new Random();
+        return 50 + rand.nextInt(50);
+    }
 }

@@ -127,9 +127,13 @@ public abstract class Character extends Creature {
             foe.defendingFrom(this, diceRolled);
             if(foe.getCurrentHp() <= 0) {
                 //this for exp gain and levelup and anything you will get from killing the enemy
-                System.out.println(this.name + " got " + foe.getExp().getExpDrop() + " experience\n");
+                System.out.println(this.name + " got " + foe.getExp().getExpDrop() + " experience");
                 this.exp.gainExp(foe.getExp().getExpDrop());
-                
+
+                // this for gold drop
+                int goldDropped = foe.getGoldDrop();
+                System.out.println(foe.getName() + " dropped " + goldDropped + " gold\n");
+                this.inventory.setGold(this.inventory.getGold() + goldDropped);
                 // hp back to full
                 this.currentHp = this.totalHp;
             }
@@ -152,8 +156,8 @@ public abstract class Character extends Creature {
         System.out.println("Character Physical Deffense : " + this.pDef);
         System.out.println("Character Magical Deffense : " + this.mDef);
         System.out.println("Caharacter Level : " + this.exp.getLvl());
-        System.out.println("Character Exp : " + this.exp.getCurrentExp() + "/" + this.exp.getExpCap() + "\n");
-       
+        System.out.println("Character Exp : " + this.exp.getCurrentExp() + "/" + this.exp.getExpCap() );
+       System.out.println("Gold : " + this.inventory.getGold() + "\n");
         // NEED NULL SAFETY
         System.out.println("Equipped Weapon : " + (this.weapon != null ?  this.weapon.getName() + ", pAtk : " + this.weapon.getPAtk() + ", mAtk : " + this.weapon.getMAtk() : "None"));
         System.out.println("Equipped Armor : " + (this.armor != null ?  this.armor.getName() + ", pDef : " + this.armor.getPDef() + ", mDef : " + this.armor.getMDef() : "None"));

@@ -84,6 +84,8 @@ public abstract class Enemy extends Creature {
         return (baseAtk / Math.pow(2, e1)) + (pAtk / Math.pow(2, e2)) + (mAtk / Math.pow(2, e3));
     }
 
+    public abstract int getGoldDrop();
+    
     // Dice roll
     // int rollDice() {
     //     Random rand = new Random();
